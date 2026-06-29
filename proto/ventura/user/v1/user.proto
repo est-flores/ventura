@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package ventura.user.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/ventura-app/ventura/gen/go/ventura/user/v1;userv1";
+
+// The user who creates content and interacts with places.
+message User {
+  string id         = 1; // UUID from auth provider
+  string email      = 2;
+  string first_name = 3;
+  string last_name  = 4;
+  string avatar_url = 5; // CDN URL to profile photo
+
+  google.protobuf.Timestamp created_at = 6;
+}

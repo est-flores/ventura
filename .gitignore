@@ -1,0 +1,41 @@
+# ─── macOS ───────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ─── Editor ──────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── Go ──────────────────────────────────────────────
+# Compiled binaries
+services/consumer-api/cmd/consumer-api
+services/admin-api/cmd/admin-api
+
+# ─── iOS / Xcode ─────────────────────────────────────
+apps/ios/DerivedData/
+apps/ios/*.xcworkspace/xcuserdata/
+apps/ios/*.xcodeproj/xcuserdata/
+apps/ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+apps/ios/.build/
+apps/ios/Pods/
+apps/ios/*.ipa
+apps/ios/*.dSYM
+apps/ios/*.dSYM.zip
+
+# ─── Environment / secrets ───────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─── Web / Node (for when apps/web and apps/admin land)
+node_modules/
+.next/
+.vercel/
+
+# ─── Infra ───────────────────────────────────────────
+infra/terraform/.terraform/
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.backup

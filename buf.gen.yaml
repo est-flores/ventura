@@ -1,0 +1,40 @@
+version: v2
+inputs:
+  - directory: proto
+
+plugins:
+  # Go — proto message structs
+  - remote: buf.build/protocolbuffers/go
+    out: gen/go
+    opt:
+      - paths=source_relative
+
+  # Go — ConnectRPC server interface + client
+  - remote: buf.build/connectrpc/go
+    out: gen/go
+    opt:
+      - paths=source_relative
+
+  # Swift — proto message structs
+  - remote: buf.build/apple/swift
+    out: gen/swift
+    opt:
+      - Visibility=Public
+
+  # Swift — ConnectRPC client
+  - remote: buf.build/connectrpc/swift
+    out: gen/swift
+    opt:
+      - Visibility=Public
+      
+  # Kotlin — Java proto base
+  - remote: buf.build/protocolbuffers/java
+    out: gen/kotlin
+
+  # Kotlin — Kotlin DSL extensions
+  - remote: buf.build/protocolbuffers/kotlin
+    out: gen/kotlin
+
+  # Kotlin — ConnectRPC client
+  - remote: buf.build/connectrpc/kotlin
+    out: gen/kotlin

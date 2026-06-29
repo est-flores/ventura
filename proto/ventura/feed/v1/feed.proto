@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package ventura.feed.v1;
+
+import "google/protobuf/timestamp.proto";
+import "ventura/user/v1/user.proto";
+import "ventura/places/v1/places.proto";
+
+option go_package = "github.com/ventura-app/ventura/gen/go/ventura/feed/v1;feedv1";
+
+// A single piece of content in the feed.
+message Post {
+  string id            = 1; // UUID
+  string video_url     = 2; // CDN URL — HLS manifest (.m3u8) for ABR
+  string thumbnail_url = 3; // First-frame poster image — eliminates black flash
+
+  ventura.user.v1.User     author = 4; // Embedded, not a foreign key reference
+  ventura.places.v1.Place  place  = 5; // Embedded place context
+
+  int64 view_count = 6;
+  int64 like_count = 7;
+
+  google.protobuf.Timestamp created_at = 8;
+}
+
+// Request carries the user's current GPS position.
+// The backend uses this to rank/filter nearby posts.
+message GetFeedRequest {
+  ventura.places.v1.LatLng location = 1;
+  int32  limit      = 2; // how many posts to return (default 10)
+  string page_token = 3; // cursor for pagination (empty on first call)
+}
+
+message GetFeedResponse {
+  repeated Post posts          = 1; // the feed items
+  string        next_page_token = 2; // send back on next call to paginate
+}
+
+// The one service that powers the consumer feed.
+service FeedService {
+  rpc GetFeed(GetFeedRequest) returns (GetFeedResponse);
+}

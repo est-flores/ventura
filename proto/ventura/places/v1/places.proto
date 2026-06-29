@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package ventura.places.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/ventura-app/ventura/gen/go/ventura/places/v1;placesv1";
+
+// GPS coordinates for a place.
+message LatLng {
+  double latitude  = 1;
+  double longitude = 2;
+}
+
+// A real-world location that posts are associated with.
+message Place {
+  string id           = 1; // UUID
+  string name         = 2;
+  string description  = 3;
+  LatLng location     = 4; // lat/lng for the GPS feed
+  string owner_id     = 5; // user ID of whoever registered this place
+
+  google.protobuf.Timestamp created_at = 6;
+}
