@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/joho/godotenv"
 	"golang.org/x/net/http2"
@@ -31,9 +32,14 @@ func main() {
 	path, handler := feedv1connect.NewFeedServiceHandler(feed.NewHandler(pool))
 	mux.Handle(path, handler)
 
-	log.Println("consumer-api listening on :8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 
-	if err := http.ListenAndServe(":8080", h2c.NewHandler(mux, &http2.Server{})); err != nil {
+	log.Printf("consumer-api listening on :%s", port)
+
+	if err := http.ListenAndServe(":"+port, h2c.NewHandler(mux, &http2.Server{})); err != nil {
 		log.Fatal(err)
 	}
 }
