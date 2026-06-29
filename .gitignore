@@ -24,6 +24,7 @@ apps/ios/Pods/
 apps/ios/*.ipa
 apps/ios/*.dSYM
 apps/ios/*.dSYM.zip
+apps/ios/Ventura/Ventura.xcodeproj/project.xcworkspace/xcuserdata/estebanflores.xcuserdatad/UserInterfaceState.xcuserstate
 
 # ─── Environment / secrets ───────────────────────────
 .env
