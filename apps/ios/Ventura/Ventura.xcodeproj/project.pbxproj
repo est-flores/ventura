@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DE2D81C32FF1E8420046F7B7 /* Connect in Frameworks */ = {isa = PBXBuildFile; productRef = DE2D81C22FF1E8420046F7B7 /* Connect */; };
-		DE2D81C52FF1E8420046F7B7 /* ConnectMocks in Frameworks */ = {isa = PBXBuildFile; productRef = DE2D81C42FF1E8420046F7B7 /* ConnectMocks */; };
-		DE2D81C72FF1E8420046F7B7 /* ConnectNIO in Frameworks */ = {isa = PBXBuildFile; productRef = DE2D81C62FF1E8420046F7B7 /* ConnectNIO */; };
-		DE2D81CA2FF1E89B0046F7B7 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = DE2D81C92FF1E89B0046F7B7 /* SwiftProtobuf */; };
-		DE2D81CC2FF1E89B0046F7B7 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = DE2D81CB2FF1E89B0046F7B7 /* SwiftProtobufPluginLibrary */; };
+		DE2D81FC2FF356180046F7B7 /* VenturaGenSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE2D81FB2FF356180046F7B7 /* VenturaGenSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,11 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE2D81C32FF1E8420046F7B7 /* Connect in Frameworks */,
-				DE2D81C72FF1E8420046F7B7 /* ConnectNIO in Frameworks */,
-				DE2D81CC2FF1E89B0046F7B7 /* SwiftProtobufPluginLibrary in Frameworks */,
-				DE2D81C52FF1E8420046F7B7 /* ConnectMocks in Frameworks */,
-				DE2D81CA2FF1E89B0046F7B7 /* SwiftProtobuf in Frameworks */,
+				DE2D81FC2FF356180046F7B7 /* VenturaGenSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,11 +83,7 @@
 			);
 			name = Ventura;
 			packageProductDependencies = (
-				DE2D81C22FF1E8420046F7B7 /* Connect */,
-				DE2D81C42FF1E8420046F7B7 /* ConnectMocks */,
-				DE2D81C62FF1E8420046F7B7 /* ConnectNIO */,
-				DE2D81C92FF1E89B0046F7B7 /* SwiftProtobuf */,
-				DE2D81CB2FF1E89B0046F7B7 /* SwiftProtobufPluginLibrary */,
+				DE2D81FB2FF356180046F7B7 /* VenturaGenSwift */,
 			);
 			productName = Ventura;
 			productReference = DE2D81AE2FF1E73F0046F7B7 /* Ventura.app */;
@@ -126,8 +114,7 @@
 			mainGroup = DE2D81A52FF1E73F0046F7B7;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				DE2D81C12FF1E8420046F7B7 /* XCRemoteSwiftPackageReference "connect-swift" */,
-				DE2D81C82FF1E89B0046F7B7 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				DE2D81FA2FF356180046F7B7 /* XCLocalSwiftPackageReference "../../../gen/swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DE2D81AF2FF1E73F0046F7B7 /* Products */;
@@ -389,50 +376,17 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		DE2D81C12FF1E8420046F7B7 /* XCRemoteSwiftPackageReference "connect-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/connectrpc/connect-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.3;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		DE2D81FA2FF356180046F7B7 /* XCLocalSwiftPackageReference "../../../gen/swift" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../gen/swift;
 		};
-		DE2D81C82FF1E89B0046F7B7 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-protobuf";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.38.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DE2D81C22FF1E8420046F7B7 /* Connect */ = {
+		DE2D81FB2FF356180046F7B7 /* VenturaGenSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DE2D81C12FF1E8420046F7B7 /* XCRemoteSwiftPackageReference "connect-swift" */;
-			productName = Connect;
-		};
-		DE2D81C42FF1E8420046F7B7 /* ConnectMocks */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DE2D81C12FF1E8420046F7B7 /* XCRemoteSwiftPackageReference "connect-swift" */;
-			productName = ConnectMocks;
-		};
-		DE2D81C62FF1E8420046F7B7 /* ConnectNIO */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DE2D81C12FF1E8420046F7B7 /* XCRemoteSwiftPackageReference "connect-swift" */;
-			productName = ConnectNIO;
-		};
-		DE2D81C92FF1E89B0046F7B7 /* SwiftProtobuf */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DE2D81C82FF1E89B0046F7B7 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobuf;
-		};
-		DE2D81CB2FF1E89B0046F7B7 /* SwiftProtobufPluginLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DE2D81C82FF1E89B0046F7B7 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobufPluginLibrary;
+			productName = VenturaGenSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
