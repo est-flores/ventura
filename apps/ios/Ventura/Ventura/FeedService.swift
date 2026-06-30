@@ -6,15 +6,19 @@
 //
 import Connect
 import Foundation
+import VenturaGenSwift
 
 final class FeedService {
     private let client: Ventura_Feed_V1_FeedServiceClient
 
     init() {
+        let baseURL = Bundle.main.object(forInfoDictionaryKey: "APIBaseURL") as? String
+                ?? "http://localhost:8080"
+        
         let protocolClient = ProtocolClient(
             httpClient: URLSessionHTTPClient(),
             config: ProtocolClientConfig(
-                host: "http://localhost:8080",
+                host: baseURL,
                 networkProtocol: .connect,
                 codec: ProtoCodec()
             )

@@ -11,5 +11,7 @@
     	<key>NSAllowsLocalNetworking</key>
     	<true/>
 	</dict>
+	<key>APIBaseURL</key>
+	<string>$(API_BASE_URL)</string>
 </dict>
 </plist>

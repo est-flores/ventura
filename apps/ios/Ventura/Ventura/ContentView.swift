@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import AVKit
+import VenturaGenSwift
 
 struct ContentView: View {
     @State private var player: AVPlayer?
