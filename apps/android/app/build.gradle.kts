@@ -34,6 +34,18 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+    flavorDimensions += "environment"
+    productFlavors {
+        create("local") {
+            dimension = "environment"
+            buildConfigField("String", "API_BASE_URL", "\"http://10.0.2.2:8080\"")
+        }
+        create("staging") {
+            dimension = "environment"
+            buildConfigField("String", "API_BASE_URL", "\"https://ventura-production-3c3a.up.railway.app\"")
+        }
     }
     sourceSets {
         getByName("main") {
