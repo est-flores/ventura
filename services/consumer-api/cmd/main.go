@@ -11,8 +11,8 @@ import (
 	"golang.org/x/net/http2/h2c"
 
 	feedv1connect "github.com/ventura-app/ventura/gen/go/ventura/feed/v1/feedv1connect"
-	"github.com/ventura-app/ventura/services/consumer-api/internal/db"
 	"github.com/ventura-app/ventura/services/consumer-api/internal/feed"
+	"github.com/ventura-app/ventura/services/consumer-api/internal/postgres"
 )
 
 func main() {
@@ -22,14 +22,18 @@ func main() {
 
 	ctx := context.Background()
 
-	pool, err := db.NewPool(ctx)
+	pool, err := postgres.NewPool(ctx)
 	if err != nil {
 		log.Fatalf("failed to connect to database: %v", err)
 	}
 	defer pool.Close()
 
+	feedRepo := feed.NewRepository(pool)
+	feedSvc := feed.NewService(feedRepo)
+	feedHandler := feed.NewHandler(feedSvc)
+
 	mux := http.NewServeMux()
-	path, handler := feedv1connect.NewFeedServiceHandler(feed.NewHandler(pool))
+	path, handler := feedv1connect.NewFeedServiceHandler(feedHandler)
 	mux.Handle(path, handler)
 
 	port := os.Getenv("PORT")
