@@ -86,10 +86,13 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
 
-    // Media3 / ExoPlayer — video playback
-    implementation("androidx.media3:media3-exoplayer:1.3.1")
-    implementation("androidx.media3:media3-exoplayer-hls:1.3.1")
-    implementation("androidx.media3:media3-ui:1.3.1")
+    // Media3 / ExoPlayer — video playback + scroll-driven prefetch (DefaultPreloadManager.Builder)
+    implementation("androidx.media3:media3-exoplayer:1.5.1")
+    implementation("androidx.media3:media3-exoplayer-hls:1.5.1")
+    implementation("androidx.media3:media3-ui:1.5.1")
+
+    // Coil — poster/thumbnail image loading for first-frame overlay
+    implementation("io.coil-kt:coil-compose:2.7.0")
 
     // Lifecycle / ViewModel for Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
